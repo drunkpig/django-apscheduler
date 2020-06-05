@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
 
-import example_apscheduler.jobs  # NOQA @isort:skip
+
 import logging
 logging.basicConfig(level="DEBUG")

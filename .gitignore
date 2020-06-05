@@ -7,3 +7,8 @@ django_apscheduler.egg-info
 .coverage
 dist
 *.sqlite3
+*.cmd
+venv
+*.log
+build/
+*.egg-info/

@@ -14,3 +14,8 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "example_apscheduler.settings")
 
 application = get_wsgi_application()
+
+try:
+    import example_apscheduler.jobs  # NOQA @isort:skip
+except:
+    print(f"{__file__}: import job error")

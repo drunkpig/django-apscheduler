@@ -1,8 +1,8 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='django-apscheduler',
-    version='0.3.0',
+    name='django-apscheduler-ng',
+    version='0.0.1',
     description='APScheduler for Django',
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -26,7 +26,7 @@ setup(
     ),
     install_requires=[
         'django>=1.11',
-        'apscheduler>=3.2.0',
+        'apscheduler-ng>=3.2.0',
     ],
     zip_safe=False
 )
