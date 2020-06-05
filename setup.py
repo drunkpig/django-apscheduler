@@ -26,7 +26,7 @@ setup(
     ),
     install_requires=[
         'django>=1.11',
-        'apscheduler-ng>=3.2.0',
+        'apscheduler-ng>=0.0.1',
     ],
     zip_safe=False
 )
