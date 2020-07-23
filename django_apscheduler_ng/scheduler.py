@@ -78,7 +78,7 @@ class DjangoBackgroundScheduler(BackgroundScheduler):
 
         if isinstance(event, JobExecutionEvent):
             if event.exception:
-                logger.info(f'eventcode={event.code}, job_instance_id={event.job_instance_id} crashed :(')
+                logger.info(f'eventcode={event.code}, job_id={event.job_id}, job_instance_id={event.job_instance_id} crashed :(')
                 update_or_create(job.job_name, event, event.exception)
                 return
             else:
