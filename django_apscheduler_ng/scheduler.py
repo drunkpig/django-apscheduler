@@ -82,16 +82,16 @@ class DjangoBackgroundScheduler(BackgroundScheduler):
                 update_or_create(job.job_name, event, event.exception)
                 return
             else:
-                logger.info(f'eventcode={event.code}, job_instance_id={event.job_instance_id} worked :)')
+                logger.debug(f'eventcode={event.code}, job_instance_id={event.job_instance_id} worked :)')
                 update_or_create(job.job_name, event)
         else:  # jobs are executed in a seperate thread, so the result event my arrive earlier than job submit event
             if event.code==EVENT_JOB_SUBMITTED:
-                logger.info(f"eventcode={event.code}, job_instance_id={event.job_instance_id}")
+                logger.debug(f"eventcode={event.code}, job_instance_id={event.job_instance_id}")
                 try:
                     JobExecHistory.objects.create(job_instance_id=event.job_instance_id, job_name=job.job_name, \
                                                         job_id=event.job_id, status=event.code, start_tm=event.event_tm)
                 except:
                     JobExecHistory.objects.filter(job_instance_id=event.job_instance_id).update(start_tm=event.event_tm)
             else:
-                logger.info(f"eventcode={event.code}, job_instance_id={event.job_instance_id}")
+                logger.debug(f"eventcode={event.code}, job_instance_id={event.job_instance_id}")
                 update_or_create(job.job_name, event)
